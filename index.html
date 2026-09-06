@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Brutalist & Motion</title>
+  <title>Portfolio — Brutalist Inter Edition</title>
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Inter Tight (Light 300, Medium 500, Semi-Bold 600) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* --- Brutalist Reset & Variables --- */
+    /* --- Brutalist Reset & Typography Mapping --- */
     :root {
       --bg-color: #0d0d0d;
       --text-color: #f0f0f0;
       --accent-color: #ffffff;
       --border-color: #262626;
-      --font-display: 'Syne', sans-serif;
-      --font-mono: 'Space Mono', monospace;
+      --font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      /* Explicit Font Weights */
+      --fw-light: 300;
+      --fw-medium: 500;
+      --fw-semibold: 600;
     }
 
     * {
@@ -30,12 +34,14 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: var(--font-mono);
+      font-family: var(--font-family);
+      font-weight: var(--fw-light); /* Base body set to Light */
       overflow-x: hidden;
       line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* --- Header & Navigation --- */
+    /* --- Navigation --- */
     nav {
       display: flex;
       justify-content: space-between;
@@ -51,9 +57,8 @@
     }
 
     .brand {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.25rem;
+      font-weight: var(--fw-semibold);
+      font-size: 1.15rem;
       text-transform: uppercase;
       letter-spacing: -0.02em;
     }
@@ -63,7 +68,9 @@
       text-decoration: none;
       margin-left: 2rem;
       font-size: 0.85rem;
+      font-weight: var(--fw-medium);
       text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .nav-links a:hover {
@@ -85,18 +92,18 @@
     }
 
     .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 10vw, 9rem);
-      font-weight: 800;
+      font-weight: var(--fw-semibold);
+      font-size: clamp(3.5rem, 11vw, 10rem);
       text-transform: uppercase;
-      line-height: 0.9;
+      line-height: 0.88;
       letter-spacing: -0.04em;
     }
 
     .hero-sub {
       margin-top: 2rem;
-      max-width: 500px;
-      font-size: 0.9rem;
+      max-width: 520px;
+      font-size: 0.95rem;
+      font-weight: var(--fw-light);
       color: #a0a0a0;
       border-left: 2px solid var(--accent-color);
       padding-left: 1rem;
@@ -124,9 +131,14 @@
     }
 
     .sticky-header h2 {
-      font-family: var(--font-display);
-      font-size: 2.5rem;
+      font-weight: var(--fw-semibold);
+      font-size: 2.25rem;
       text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .sticky-header p {
+      font-weight: var(--fw-medium);
     }
 
     .projects-list {
@@ -150,18 +162,22 @@
       display: flex;
       justify-content: space-between;
       font-size: 0.8rem;
+      font-weight: var(--fw-medium);
       color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .project-title {
-      font-family: var(--font-display);
-      font-size: 2rem;
+      font-weight: var(--fw-semibold);
+      font-size: 2.25rem;
       text-transform: uppercase;
+      letter-spacing: -0.02em;
     }
 
     .project-img-holder {
       width: 100%;
-      height: 350px;
+      height: 380px;
       background-color: #1a1a1a;
       border: 1px solid var(--border-color);
       display: flex;
@@ -169,7 +185,9 @@
       justify-content: center;
       color: #555;
       font-size: 0.85rem;
+      font-weight: var(--fw-medium);
       text-transform: uppercase;
+      letter-spacing: 0.05em;
       overflow: hidden;
     }
 
@@ -194,15 +212,25 @@
       gap: 2rem;
     }
 
+    .footer-label {
+      color: #888;
+      font-weight: var(--fw-medium);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
     .footer-title {
-      font-family: var(--font-display);
+      font-weight: var(--fw-semibold);
       font-size: clamp(2rem, 6vw, 5rem);
       text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
     }
 
     .contact-link {
       color: var(--accent-color);
       font-size: 1.5rem;
+      font-weight: var(--fw-medium);
       text-decoration: none;
       border-bottom: 2px solid var(--accent-color);
       width: fit-content;
@@ -230,7 +258,7 @@
       <h1 class="hero-title animate-hero">DESIGNER</h1>
     </div>
     <p class="hero-sub animate-fade">
-      Brutalist web aesthetics focused on clean grids, stark typography, and high-performance interactive motion.
+      Brutalist web aesthetics focused on clean grids, stark Inter Tight typography, and high-performance interactive motion.
     </p>
   </section>
 
@@ -280,12 +308,12 @@
 
   <!-- Footer -->
   <footer id="contact">
-    <p style="color: #888;">GET IN TOUCH</p>
+    <p class="footer-label">GET IN TOUCH</p>
     <h2 class="footer-title">LET'S BUILD SOMETHING STARK.</h2>
     <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a>
   </footer>
 
-  <!-- GSAP & ScrollTrigger CDN Libraries -->
+  <!-- GSAP & ScrollTrigger Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -293,7 +321,7 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Hero Load Animations
+    // Hero Entrance Animations
     gsap.from(".animate-hero", {
       y: 120,
       opacity: 0,
@@ -310,7 +338,7 @@
       ease: "power2.out"
     });
 
-    // 2. Scroll-Triggered Project Cards Reveal
+    // ScrollTrigger Card Animations
     const cards = gsap.utils.toArray('.animate-card');
     cards.forEach((card) => {
       gsap.from(card, {
