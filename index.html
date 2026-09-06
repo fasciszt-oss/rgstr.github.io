@@ -121,11 +121,11 @@
     }
 
     .sticky-header {
-      padding: 4rem 2rem;
-      border-right: 1px solid var(--border-color);
-      position: sticky;
-      top: 4rem;
-      height: fit-content;
+      position: relative; /*disable sticky positioning for mobile view*/
+      top: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
     }
 
     .sticky-header h2 {
@@ -146,14 +146,7 @@
 
     /* --- Clickable Project Cards --- */
     .project-card {
-      padding: 3rem 2rem;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
+      padding: 2.5rem 1.5rem;
     }
 
     .project-card:last-child {
