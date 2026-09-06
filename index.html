@@ -11,6 +11,12 @@
 
   <style>
     /* --- Brutalist Reset & Typography Mapping --- */
+    a,
+    a:visited,
+    a:active {
+      color: inherit;
+      text-decoration: none;
+    }
     :root {
       --bg-color: #0d0d0d;
       --text-color: #f0f0f0;
@@ -145,7 +151,10 @@
     }
 
     /* --- Clickable Project Cards --- */
-    .project-card {
+    .project-card,
+    .project-card:visited {
+      color: var(--text-color);
+      text-decoration: none;
       padding: 2.5rem 1.5rem;
     }
 
