@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio — Brutalist Inter Edition</title>
   
-  <!-- Google Fonts: Inter Tight (Light 300, Medium 500, Semi-Bold 600) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;500;600&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
       --border-color: #262626;
       --font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
       
-      /* Explicit Font Weights */
       --fw-light: 300;
       --fw-medium: 500;
       --fw-semibold: 600;
@@ -35,7 +34,7 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: var(--font-family);
-      font-weight: var(--fw-light); /* Base body set to Light */
+      font-weight: var(--fw-light);
       overflow-x: hidden;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -146,12 +145,16 @@
       flex-direction: column;
     }
 
+    /* --- Clickable Project Cards --- */
     .project-card {
       padding: 3rem 2rem;
       border-bottom: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
 
     .project-card:last-child {
@@ -175,33 +178,55 @@
       letter-spacing: -0.02em;
     }
 
+    /* --- Animated Image Slideshow Container --- */
     .project-img-holder {
+      position: relative;
       width: 100%;
       height: 380px;
       background-color: #1a1a1a;
       border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #555;
-      font-size: 0.85rem;
-      font-weight: var(--fw-medium);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       overflow: hidden;
     }
 
-    .project-img-holder img {
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0;
       filter: grayscale(100%);
       transition: filter 0.4s ease, transform 0.4s ease;
+      animation: crossfade 9s infinite;
     }
 
-    .project-card:hover img {
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 3s; }
+    .slideshow img:nth-child(3) { animation-delay: 6s; }
+
+    @keyframes crossfade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      33% { opacity: 1; }
+      43% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* Hover interactions for card */
+    .project-card:hover .slideshow img {
       filter: grayscale(0%);
       transform: scale(1.03);
+    }
+
+    .project-card:hover .project-title {
+      text-decoration: underline;
     }
 
     /* --- Footer --- */
@@ -239,7 +264,6 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <div class="brand">YOUR NAME</div>
     <div class="nav-links">
@@ -249,7 +273,6 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-title-wrap">
       <h1 class="hero-title animate-hero">VISUAL</h1>
@@ -262,7 +285,6 @@
     </p>
   </section>
 
-  <!-- Work Section -->
   <section class="work-section" id="work">
     <div class="sticky-header">
       <h2>Selected Works</h2>
@@ -270,54 +292,63 @@
     </div>
     <div class="projects-list">
       
-      <div class="project-card animate-card">
+      <a href="project-1.html" target="_blank" class="project-card animate-card">
         <div class="project-meta">
-          <span>01 / BRANDING</span>
+          <span>01 / COMMERCIAL WORK</span>
           <span>CONCEPT</span>
         </div>
         <h3 class="project-title">PROJECT SILENCE</h3>
         <div class="project-img-holder">
-          <span>[ Image Placeholder / 1000 x 600 ]</span>
+          <div class="slideshow">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Work 1 Frame 1" />
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Work 1 Frame 2" />
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" alt="Work 1 Frame 3" />
+          </div>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card animate-card">
+      <a href="project-2.html" target="_blank" class="project-card animate-card">
         <div class="project-meta">
-          <span>02 / PRINT & VECTOR</span>
+          <span>02 / APPAREL & EMBROIDERY</span>
           <span>CLIENT WORK</span>
         </div>
         <h3 class="project-title">MONOCHROME SYSTEM</h3>
         <div class="project-img-holder">
-          <span>[ Image Placeholder / 1000 x 600 ]</span>
+          <div class="slideshow">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000&auto=format&fit=crop" alt="Work 2 Frame 1" />
+            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1000&auto=format&fit=crop" alt="Work 2 Frame 2" />
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop" alt="Work 2 Frame 3" />
+          </div>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card animate-card">
+      <a href="project-3.html" target="_blank" class="project-card animate-card">
         <div class="project-meta">
-          <span>03 / INTERACTIVE</span>
+          <span>03 / EXPERIMENTAL</span>
           <span>EXPERIMENTAL</span>
         </div>
         <h3 class="project-title">KINETIC GRID</h3>
         <div class="project-img-holder">
-          <span>[ Image Placeholder / 1000 x 600 ]</span>
+          <div class="slideshow">
+            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop" alt="Work 3 Frame 1" />
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1000&auto=format&fit=crop" alt="Work 3 Frame 3" />
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Work 3 Frame 2" />
+          </div>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
 
-  <!-- Footer -->
   <footer id="contact">
     <p class="footer-label">GET IN TOUCH</p>
     <h2 class="footer-title">LET'S BUILD SOMETHING STARK.</h2>
     <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a>
   </footer>
 
-  <!-- GSAP & ScrollTrigger Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <!-- Animation Logic -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
